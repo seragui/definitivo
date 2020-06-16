@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Creación de Cita{% endblock %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos4.css' %}">
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/formato.js' %}"> </script>
+    {% endblock %}
+</head>
+<body>
+    
+
+<hr>
+
+{% block content %}
+<h1>Ingresar Cita</h1>
+
+<body>
+    
+    <form method="POST" action="" class="con">
+        {% csrf_token %}
+       <fieldset>
+        <legend>Cita</legend>
+            <p><label for="id_idMedico">IdMedico:</label> <input type="number" name="idMedico" required="" id="id_idMedico"></p>
+            <p><label for="id_idPaciente">IdPaciente:</label> <input type="number" name="idPaciente" required="" id="id_idPaciente"></p>
+            <p><label for="id_idEspecialidad">IdEspecialidad:</label> <input type="number" name="idEspecialidad" required="" id="id_idEspecialidad"></p>
+            <p><label for="id_fecha">Fecha:</label> <input type="date" name="fecha" required="" id="id_fecha"></p>
+            <p><label for="id_hora">Hora:</label> <input type="time" name="hora" maxlength="5" required="" id="id_hora"></p>
+            <button type="submit">Crear</button>
+            <button type="reset">Borrar</button>
+        
+        </fieldset>
+        
+    </form>
+
+
+{% endblock %}
+</body>
+
+{% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+  
+{% endblock footer %}
+</body>
+</html>

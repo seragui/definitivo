@@ -1,0 +1,122 @@
+
+
+body{
+    margin:0;
+    padding: 0;
+    background-color: teal;
+   
+}
+
+
+.contenedor{
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+header{
+    background-color: #00b347;
+}
+
+header .menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .Lmenu{
+    display: flex;
+    align-items: center;
+}
+
+
+.sesion{
+    display: flex;
+}
+
+
+#Mision{
+    background-color: forestgreen;
+    color: white;       
+}
+
+#Mision h1 b{
+    margin:0;
+    color:black;
+    border: 1px solid white;
+    width: 130px;
+    padding-left: 10px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+#Mision p h4{
+    text-align: justify;
+    margin-right: 10px;
+}
+
+#Mision .contenedor{
+    display: flex;
+    align-items: center;
+}
+
+#vision .contenedor{
+    display: flex;
+    align-items: center;
+}
+
+#vision h1 b{
+    margin:20px;
+    color:black;
+    border: 1px solid black;
+    width: 130px;
+    padding-left: 10px;
+    border-radius: 200px; 
+    background-color: lightcyan;
+    color: black; 
+}
+
+#vision .imagen img{
+    border-left: -4000px;
+}
+
+#vision h4{
+    text-align: justify;
+    margin: 10px;
+}
+
+
+footer{
+    padding-top: 40px;
+}
+
+footer .final{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+footer .redes{
+    display: flex;
+    align-items: center;
+}
+
+footer ul{
+    display: flex;
+}
+
+footer ul li{
+    margin: 0 20px;
+    margin-left: 200px;
+}
+
+footer p h2 b{
+        text-align: center;
+}
+
+li{
+    text-decoration:none;
+}
+
+
+

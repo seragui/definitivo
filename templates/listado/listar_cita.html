@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Listado de Citas{% endblock titulo %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos6.css' %}">
+    {% endblock extra %}
+</head>
+<body>
+    
+    {% block content %}
+    {% if citas %}
+    <table>
+      <thead>
+        <tr>
+          <th>IdCita</th>
+          <th>IdMedico</th>
+          <th>IdPaciente</th>
+          <th>IdEspecialidad</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Opciones</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for cita in citas %}
+        <tr>
+          <td>{{cita.idCita}}</td>
+          <td>{{cita.idMedico}}</td>
+          <td>{{cita.idPaciente}}</td>
+          <td>{{cita.idEspecialidad}}</td>
+          <td>{{cita.fecha}}</td>
+          <td>{{cita.hora}}</td>
+          <td>
+            <a href="{% url 'clinica:editar_cita' cita.idCita %}">Actualizar</a>
+          </td>
+          <td>
+            <a href="{% url 'clinica:eliminar_cita' cita.idCita %}">Eliminar</a>
+          </td>
+        </tr>
+  
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %}
+    <h1>No existen Citas registradas</h1>
+    {% endif %}
+    
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+
+</body>
+</html> 

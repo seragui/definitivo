@@ -1,0 +1,53 @@
+.navegacion{
+    width: 1000px;
+    margin: 20px auto;
+    background: black;
+    color: black;
+}
+
+.navegacion ul{
+    list-style: none;
+}
+
+.ulmenu > li{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.ulmenu > li > a{
+    display: block;
+    padding: 15px 20px;
+    color:white;
+    font-family: 'Arial Narrow';
+    text-decoration: none;
+}
+
+.ulmenu li a:hover{
+    color:greenyellow;
+    transition: all .3s;
+}
+
+/** submenu **/
+
+.submenu {
+    position: absolute;
+    background:black;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.submenu li a{
+    display: block;
+    padding: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
+
+}

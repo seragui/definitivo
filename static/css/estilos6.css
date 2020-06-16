@@ -1,0 +1,18 @@
+table{
+    background-color: bisque;
+    text-align: left;  
+    padding: 30px;
+    margin : auto; 
+}
+
+th, td{
+    border: solid;
+}
+
+td{
+    background-color: grey;
+}
+
+thead{
+    background-color: goldenrod;
+}

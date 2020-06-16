@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Eliminar Paciente{% endblock %}
+</head>
+<body>
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <h1><p><strong>¿Desea eliminar el registro seleccionado: {{object}}?</strong></p></h1>
+        <button type="submit">Confirmar</button>
+    </form>
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Editar Paciente{% endblock %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos7.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <body>
+
+        <hr>
+        <form method="POST" action="" class="con">
+            {% csrf_token %}
+           <fieldset>
+               <legend>Editar Paciente</legend>
+            {{form.as_p}}
+            <button type="submit">Actualizar</button>
+            <button type="reset">Borrar</button>
+            </fieldset>
+            
+        </form>
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+        
+    </body>
+    </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Pagina de Inicio de Sismedica{% endblock %}</title>
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    {% endblock %}
+</head>
+<body>
+    
+    
+
+    {% block barra %}
+    <header>
+        
+        <div class="contenedor">
+
+            <div class="menu">
+                <div class="Lmenu">
+                    <nav class="navegacion">
+                        <ul class="ulmenu">
+                            <li><a href="{% url 'index' %}">Menu Principal</a></li>
+                            <li><a href="#">Expediente</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'clinica:crear_paciente' %}">Crear Paciente Nuevo</a> </li>
+                                    <li><a href="{% url 'clinica:listar_paciente' %}">Gestionar Paciente</a></li>
+                                </ul>
+                            </li>    
+                            <li><a href="#">Consulta</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'clinica:crear_consulta' %}">Crear Consulta</a> </li>
+                                    <li><a href="{% url 'clinica:listar_consulta' %}"">Gestionar Consulta</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Reportes</a></li>
+                            <li><a href="#">Citas</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'clinica:crear_cita' %}">Crear Cita</a> </li>
+                                    <li><a href="{% url 'clinica:listar_cita' %}">Gestionar Cita</a></li>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="sesion">
+                    <img src="{% static 'img/imagen1.png' %}" alt="Mi imagen" width="75" height="100">
+                    <ul>
+                        <li>{{user.username | upper}}</li>
+                        <li><button>editar perfil</button></li>
+                        <li><a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+        </div>
+       
+    </header>
+    {% endblock barra %}
+    
+    <hr>
+
+    {% block content %}
+    <section id="Mision">
+        <div class="contenedor">
+            <div class="texto">
+                <h1><b>Misión</b></h1>
+                <p><h4>Somos la instancia del Estado rectora en materia de salud, que garantiza a los habitantes de la República de El Salvador la cobertura de servicios oportunos e integrales, con equidad, calidad y calidez, en corresponsabilidad con la comunidad, incluyendo todos los sectores y actores sociales, para contribuir a lograr una mejor calidad de vida.</h4></p>
+            </div>
+            <div class="imagen">
+                <img src="{% static 'img/imagen2.jpg' %}" alt="">
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section id="vision">
+        <div class="contenedor">
+            <div class="imagen">
+                <img src="{% static 'img/imagen3.jpg' %}" alt="">
+            </div>
+            <div class="texto">
+            <h1><b>Visión</b></h1>
+            <p><h4>Instancia rectora del sector fortalecida, 
+                conduciendo de manera eficiente y efectiva el 
+                Sistema Nacional de Salud y garantizando a los habitantes de la República de El Salvador 
+                servicios integrales de salud en armonía con el 
+                ambiente, con equidad, calidad y calidez,
+                 para la conservación y restablecimiento de la salud,
+                 estimulando para ello la corresponsabilidad y la contraloría social.</h4></p>
+            </div>
+        </div>
+    </section>
+    
+<hr>
+
+{% endblock %}
+
+{% block footer %}
+    <footer id="final">
+        <div id="redes">
+            <ul>
+                <li><img src="{% static 'img/fb.png' %}" alt="" width="50" height="75"></li>
+                <li><img src="{% static 'img/ig.png' %}" alt="" width="50" height="75"></li>
+                <li><img src="{% static 'img/twitter.png' %}" alt="" width="50" height="75"></li>
+                <li><img src="{% static 'img/wa.png' %}" alt="" width="50" height="75"></li>
+            </ul>
+        </div>
+        <p><h2><b><center>Contactanos al : 2214-8697</center></b></h2></p>
+    </footer>
+{% endblock %}
+
+
+
+</body>
+</html>

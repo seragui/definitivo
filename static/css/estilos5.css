@@ -1,0 +1,15 @@
+form{
+    margin: 0 auto;
+    width: 900px;
+    height: 615px;
+    background-color:beige;
+    padding: 15px;
+    color: #999;
+    border-radius: 10px;
+    column-count: 2;
+    
+}
+
+input, textarea{
+    width: 280px;
+}

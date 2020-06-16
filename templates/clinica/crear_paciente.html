@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Ingresar nuevo Paciente{% endblock %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos5.css' %}">
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/formato.js' %}"> </script>
+    {% endblock %}
+</head>
+<body>
+
+   
+
+    <hr>
+    {% block content %}
+    
+    <h1 id="Ingreso">Ingresar los datos del Paciente</h1>
+    <form action="" method="POST">
+        
+        {% csrf_token %}   
+        
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}    
+            <p><label for="id_expediente">No.Expediente:</label></p> 
+                <input type="number" name="expediente" required="" id="id_expediente"><br/>
+            <p><label for="id_nombre">Nombre:</label></p>
+                 <input type="text" name="nombre" maxlength="100" required="" id="id_nombre"><br/>
+            <p><label for="id_apellidos">Apellidos:</label></p> 
+                <input type="text" name="apellidos" maxlength="100" required="" id="id_apellidos"><br/>
+            <p><label for="id_dui">DUI:</label></p>
+                 <input type="text" name="dui" maxlength="10" required="" id="id_dui"><br/>
+            <p><label for="id_sexo">Sexo:</label></p> 
+                <input type="text" name="sexo" maxlength="1" required="" id="id_sexo"><br/>
+            <p><label for="id_email">Email:</label></p> 
+                <input type="text" name="email" maxlength="100" required="" id="id_email"><br/>
+            <p><label for="id_estadoCivil">EstadoCivil:</label></p> 
+                <input type="text" name="estadoCivil" maxlength="10" required="" id="id_estadoCivil"><br/>
+            <p><label for="id_telefono">Telefono:</label></p>
+                <input type="text" name="telefono" required="" id="id_telefono"><br/><br/>
+            <p><label for="id_fechaNaci">Fecha de Nacimiento:</label></p>
+                <input type="date" name="fechaNaci" required="" id="id_fechaNaci"><br/>
+            <p><label for="id_direccion">Direccion:</label></p> 
+                <textarea name="direccion" cols="40" rows="10" maxlength="300" required="" id="id_direccion"></textarea><br/>
+            <p><label for="id_departamento">Departamento:</label></p>
+                <input type="text" name="departamento" maxlength="100" required="" id="id_departamento"></br>
+            <p><label for="id_municipio">Municipio:</label></p> 
+                <input type="text" name="municipio" maxlength="100" required="" id="id_municipio"><br/>
+            <p><label for="id_altura">Altura:</label></p>
+                <input type="number" name="altura" required="" id="id_altura"><br/>
+            <p><label for="id_peso">Peso:</label></p> 
+                <input type="number" name="peso" required="" id="id_peso"><br/>
+        <br>
+        
+        <button type="submit">Crear</button>
+        <button type="reset">Limpiar Datos</button>
+        {% endif %}
+    </form>
+ 
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+
+</body>
+</html>
