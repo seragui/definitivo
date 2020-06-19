@@ -18,4 +18,8 @@ urlpatterns=[
     path('listar_cita/',login_required(ListadoCita.as_view()),name='listar_cita'),
     path('editar_cita/<pk>',login_required(ActualizarCita.as_view()), name = 'editar_cita'),
     path('eliminar_cita/<pk>',login_required(EliminarCita.as_view()),name='eliminar_cita'),
+
+    path('crear_incapacidad/',login_required(CrearIncapacidad.as_view()),name= 'crear_incapacidad'),
+    path('listar_incapacidad/',login_required(ListadoIncapacidad.as_view()),name='listar_incapacidad'),
+    path('eliminar_incapacidad/<pk>',login_required(EliminarIncapacidad.as_view()),name='eliminar_incapacidad'),
 ]

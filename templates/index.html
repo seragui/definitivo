@@ -36,13 +36,18 @@
                                     <li><a href="{% url 'clinica:listar_consulta' %}"">Gestionar Consulta</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Reportes</a></li>
                             <li><a href="#">Citas</a>
                                 <ul class="submenu">
                                     <li><a href="{% url 'clinica:crear_cita' %}">Crear Cita</a> </li>
                                     <li><a href="{% url 'clinica:listar_cita' %}">Gestionar Cita</a></li>
                             </li>
-                        </ul>
+                                </ul>
+                            <li><a href="#">Incapacidades</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'clinica:crear_incapacidad' %}">Crear Incapacidad</a> </li>
+                                    <li><a href="{% url 'clinica:listar_incapacidad' %}">Gestionar Incapacidad</a></li>
+                                </ul>
+                            </li>
                     </nav>
                 </div>
                 <div class="sesion">

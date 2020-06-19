@@ -1,0 +1,16 @@
+.con{
+    color: gray;
+    background-color: beige;
+    width: 600px;
+    height: 350px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 40px;
+ }
+
+
+ legend{
+     color: black;
+     size: 20px;
+ }
+

@@ -5,8 +5,10 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, logout
-from .forms import FormularioLogin
+from .forms import *
 from django.urls import reverse_lazy
+from django.views.generic import *
+from apps.usuarios.models import Usuario
 # Create your views here.
 
 
@@ -31,3 +33,16 @@ class Login(FormView):
 def LogoutUsuario(request):
     logout(request)
     return HttpResponseRedirect('/accounts/login')
+
+class ListadoUsuario(ListView):
+    model=Usuario
+    template_name = 'usuarios/listar_usuarios.html'
+    
+    def get_queryset(self): 
+       return self.model.objects.filter(usuario_activo=True)
+
+class RegistrarUsuario(CreateView):
+    model = Usuario
+    form_class = FormularioUsuario
+    template_name = 'usuarios/crear_usuario.html'
+    success_url = reverse_lazy('usuarios:lisar_usuarios')

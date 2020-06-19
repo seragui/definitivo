@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Listado de Usuarios{% endblock titulo %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos6.css' %}">
+    {% endblock extra %}
+</head>
+<body>
+    
+    {% block content %}
+    <center><h1>Listado de Usuarios registrados</h1></center>   
+    {% if object_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Opciones</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for usuario in object_list %}
+        <tr>
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.username}}</td>
+          <td>{{usuario.nombres}}</td>
+          <td>{{usuario.apellidos}}</td>
+          <td>{{usuario.email}}</td>
+          <td>
+            <a href="">Actualizar</a>
+          </td>
+          <td>
+            <a href="">Eliminar</a>
+          </td>
+        </tr>
+  
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %}
+    <h1>No existen Usuarios registradas</h1>
+    {% endif %}
+    
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+
+</body>
+</html> 

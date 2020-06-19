@@ -128,5 +128,6 @@ class Incapacidad(models.Model):
         ordering = ['idIncapacidad'] 
 
     def __str__(self):
-        return self.idConsulta + ' '+ self.idIncapacidad
+        st = str(self.idConsulta) +' '+str(self.idIncapacidad)
+        return st
 

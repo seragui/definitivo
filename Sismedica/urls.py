@@ -22,8 +22,9 @@ from apps.usuarios.views import  Login, LogoutUsuario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('usuarios/',include(('apps.usuarios.urls','usuarios'))),
     path('clinica/',include(('apps.clinica.urls','clinica'))),
-    path('',Inicio.as_view(), name = 'index'),
+    path('',login_required(Inicio.as_view()), name = 'index'),
     path('accounts/login/',Login.as_view(),name='login'),
     path('logout/',login_required(LogoutUsuario),name='logout'),
 ]

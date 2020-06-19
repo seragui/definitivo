@@ -85,3 +85,20 @@ class EliminarCita(DeleteView):
     model = Cita
     success_url = reverse_lazy('clinica:listar_cita')
 
+# CRUD ASIGNADOS A INCAPACIDAD
+
+class ListadoIncapacidad(ListView):
+    model = Incapacidad
+    template_name = 'listado/listar_incapacidad.html'
+    context_object_name='incapacidades'
+    queryset = Incapacidad.objects.all()
+
+class CrearIncapacidad(CreateView):
+    model = Incapacidad
+    form_class = IncapacidadForm
+    template_name = 'clinica/crear_incapacidad.html'
+    success_url = reverse_lazy('clinica:listar_incapacidad')
+
+class EliminarIncapacidad(DeleteView):
+    model = Incapacidad
+    success_url = reverse_lazy('clinica:listar_incapacidad')
