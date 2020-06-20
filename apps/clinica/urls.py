@@ -8,7 +8,7 @@ from .views import *
 urlpatterns =[
     path('crear_expediente/', login_required(CrearExpediente.as_view()) ,name= 'crear_expediente'),
     path('listar_expediente/',login_required(ListadoExpediente.as_view()),name='listar_expediente'),
-    path('editar_expediente/<int:pk>',login_required(ActualizarExpediente.as_view()), name = 'editar_expediente'),
+    path('editar_expediente/<pk>',login_required(ActualizarExpediente.as_view()), name = 'editar_expediente'),
 
 
     path('crear_paciente/', login_required(CrearPaciente.as_view()),name= 'crear_paciente'),

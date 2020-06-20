@@ -32,7 +32,7 @@
     {% if expedientes %}
    
     <div class="container">
-      <h3 id="Ingreso">Gestion de Expedientes/h3>
+      <h3 id="Ingreso">Gestion de Expedientes</h3>
     <table id="table_paciente" class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -50,7 +50,7 @@
           <td>{{expediente.nombreCompleto}}</td>
           <td>{{expediente.apellidos}}</td>
           <td>
-            <a href="{% url 'clinica:editar_expediente' paciente.idExpediente %}">Actualizar</a>
+            <a href="{% url 'clinica:editar_expediente' expediente.idExpediente %}">Actualizar</a>
         </tr>
       </div>
         {% endfor %}
