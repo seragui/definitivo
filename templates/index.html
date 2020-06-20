@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}Pagina de Inicio de Sismedica{% endblock %}</title>
     {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
     {% endblock %}
@@ -26,14 +27,16 @@
                             <li><a href="{% url 'index' %}">Menu Principal</a></li>
                             <li><a href="#">Expediente</a>
                                 <ul class="submenu">
-                                    <li><a href="{% url 'clinica:crear_paciente' %}">Crear Paciente Nuevo</a> </li>
+                                    <li><a href="{% url 'clinica:crear_expediente' %}">Crear Expediente</a></li>
+                                    <li><a href="{% url 'clinica:crear_paciente' %}">Crear Paciente</a> </li>
+                                    <li><a href="{% url 'clinica:listar_expediente' %}">Gestionar Expediente</a></li>
                                     <li><a href="{% url 'clinica:listar_paciente' %}">Gestionar Paciente</a></li>
                                 </ul>
                             </li>    
                             <li><a href="#">Consulta</a>
                                 <ul class="submenu">
                                     <li><a href="{% url 'clinica:crear_consulta' %}">Crear Consulta</a> </li>
-                                    <li><a href="{% url 'clinica:listar_consulta' %}"">Gestionar Consulta</a></li>
+                                    <li><a href="{% url 'clinica:listar_consulta' %}">Gestionar Consulta</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Citas</a>
@@ -48,14 +51,33 @@
                                     <li><a href="{% url 'clinica:listar_incapacidad' %}">Gestionar Incapacidad</a></li>
                                 </ul>
                             </li>
+                            {% if request.user.is_staff %}
+                            <li><a href="#">Medicos</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'clinica:crear_medico' %}">Crear Medico</a> </li>
+                                    <li><a href="{% url 'clinica:listar_medico' %}">Gestionar Medicos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Especialidad</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'clinica:crear_especialidad' %}">Crear Especialidad</a> </li>
+                                    <li><a href="{% url 'clinica:listar_especialidad' %}">Gestionar Especialidades</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Usuarios</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'usuarios:registrar_usuario' %}">Crear Usuario</a> </li>
+                                    <li><a href="{% url 'usuarios:listar_usuarios' %}">Gestionar Usuarios</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
                     </nav>
                 </div>
                 <div class="sesion">
                     <img src="{% static 'img/imagen1.png' %}" alt="Mi imagen" width="75" height="100">
                     <ul>
-                        <li>{{user.username | upper}}</li>
-                        <li><button>editar perfil</button></li>
-                        <li><a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                        <li><b>{{user.username | upper}}</li>
+                        <li><a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a></li></b>
                     </ul>
                 </div>
                 

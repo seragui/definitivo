@@ -7,8 +7,34 @@ from django.views.generic import TemplateView, ListView, UpdateView, CreateView,
 from django.urls import reverse_lazy
 # Create your views here.
 
+""" Creacion de las vistas con las que contara la aplicacion 
+    las cuales estan clasificadas segun su CRUD al mismo tiempo
+    se han importado las librerias necesarias para procesar el codigo
+"""
+
+
 class Inicio(TemplateView):
     template_name='index.html'
+
+#CRUD ASIGNADO A PACIENTE
+class ListadoExpediente(ListView):
+    model = Expediente
+    template_name='listado/listar_expediente.html'
+    context_object_name='expedientes'
+    queryset = Expediente.objects.all()
+   
+class ActualizarExpediente(UpdateView):
+    model=Expediente
+    template_name = 'modificables/editar_expediente.html'
+    context_object_name='expedientes'
+    form_class = ExpedienteForm
+    success_url = reverse_lazy('clinica:listar_expediente')
+
+class CrearExpediente(CreateView):
+    model = Expediente
+    form_class = ExpedienteForm
+    template_name = 'clinica/crear_expediente.html'
+    success_url = reverse_lazy('clinica:crear_paciente')
 
 #CRUD ASIGNADO A PACIENTE
 class ListadoPaciente(ListView):
@@ -102,3 +128,48 @@ class CrearIncapacidad(CreateView):
 class EliminarIncapacidad(DeleteView):
     model = Incapacidad
     success_url = reverse_lazy('clinica:listar_incapacidad')
+
+
+#CRUD ASIGNADO A MEDICOS
+
+class ListadoMedicos(ListView):
+    model = Medico
+    template_name = 'listado/listar_medico.html'
+    context_object_name = 'medicos'
+    queryset = Medico.objects.all()
+
+class CrearMedico(CreateView):
+    model = Medico
+    form_class = MedicoForm
+    template_name = 'clinica/crear_medico.html'
+    success_url = reverse_lazy('clinica:listar_medico')
+
+class ActualizarMedico(UpdateView):
+    model = Medico
+    template_name='modificables/editar_medico.html'
+    context_object_name = 'medicos'
+    form_class = MedicoForm
+    success_url = reverse_lazy('clinica:listar_medico')
+
+class EliminarMedico(DeleteView):
+    model = Medico
+    success_url = reverse_lazy('clinica:listar_medico')
+
+
+#CRUD ASIGNADO A ESPECIALIDADES
+
+class ListadoEspecialidad(ListView):
+    model = Especialidad
+    template_name = 'listado/listar_especialidad.html'
+    context_object_name = 'especialidades'
+    queryset = Especialidad.objects.all()
+
+class CrearEspecialidad(CreateView):
+    model = Especialidad
+    form_class = EspecialidadForm
+    template_name='clinica/crear_especialidad.html'
+    success_url = reverse_lazy('clinica:listar_especialidad')
+
+class EliminarEspecialidad(DeleteView):
+    model = Especialidad
+    success_url = reverse_lazy('clinica:listar_especialidad')

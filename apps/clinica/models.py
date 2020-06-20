@@ -2,11 +2,33 @@ from django.db import models
 
 # Create your models here.
 
+class Expediente(models.Model):
+    idExpediente = models.AutoField(primary_key=True)
+    nombreCompleto = models.CharField('Nombres', max_length= 200,null=True, blank=True)
+    edad =models.IntegerField('Edad',null=True,blank=True)
+    sexo = models.CharField('Sexo',max_length= 200,null=True, blank=True)
+    estado = models.CharField('Estado',max_length= 200,null=True, blank=True)
+    altura = models.FloatField('Altura',null=True, blank=True)
+    peso = models.FloatField('Peso',null=True, blank=True)
+    temperatura = models.FloatField('Temperatura',null=True, blank=True)
+    presart = models.CharField('Presión Arterial',max_length= 200,null=True, blank=True)
+    enfermedadeshe = models.TextField('Enfermedades Hereditarias',max_length= 400,null=True, blank=True)
+    alergias = models.TextField('Alergias',max_length= 400,null=True, blank=True)
+    obserpsi = models.TextField('Observaciones Psicologicas',max_length= 400,null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Expediente'
+        verbose_name_plural = 'Expedientes'
+        ordering =['idExpediente']
+    def __str__(self):
+        st = str(self.idExpediente) +' '+str(self.nombreCompleto)
+        return st
+        
 
 class Paciente(models.Model):
 
     id_paciente = models.AutoField(primary_key=True)
-    expediente = models.IntegerField('No.Expediente',blank=False, null=False)
+    idExpediente = models.ForeignKey(Expediente, null=True, on_delete=models.SET_NULL)
     nombre = models.CharField('Nombre',max_length=100, blank=False, null=False)
     apellidos = models.CharField('Apellidos', max_length=100, blank=False, null=False)
     dui = models.CharField('DUI', max_length=10, blank=False,null=False)
@@ -130,4 +152,6 @@ class Incapacidad(models.Model):
     def __str__(self):
         st = str(self.idConsulta) +' '+str(self.idIncapacidad)
         return st
+
+
 

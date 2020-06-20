@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Listado de Pacientes{% endblock %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'DataTables/datatables.min.css' %}">
+    
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'DataTables/datatables.min.js' %}"></script>
+    
+    <script>
+       $(document).ready( function () {
+        $('#table_paciente').DataTable();
+} );
+    </script>
+    
+    {% endblock extra %}
+</head>
+<body>
+    <BR>
+    
+    {% block content %}
+    {% if expedientes %}
+   
+    <div class="container">
+      <h3 id="Ingreso">Gestion de Expedientes/h3>
+    <table id="table_paciente" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          
+          <th># Expediente</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for expediente in expedientes %}
+        <tr>         
+          <td>{{expediente.idExpediente}}</td>
+          <td>{{expediente.nombreCompleto}}</td>
+          <td>{{expediente.apellidos}}</td>
+          <td>
+            <a href="{% url 'clinica:editar_expediente' paciente.idExpediente %}">Actualizar</a>
+        </tr>
+      </div>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %}
+    <h1>No existen pacientes registrados</h1>
+    {% endif %}
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+   
+</body>
+</html> 

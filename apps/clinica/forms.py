@@ -1,6 +1,17 @@
 from django import forms
 from .models import *
 
+""" Creacion de los formularios mediantes las funciones que 
+    django nos proporciona para un manejo facil de la informacion
+    utilizando las librerias forms al mismo tiempo podemos colocarles
+    los label, widgets de los datos por lo cual algunas de las clases
+    ser realizaron de esa manera"""
+
+class ExpedienteForm(forms.ModelForm):
+    class Meta:
+        model = Expediente
+        fields = '__all__'
+
 class PacienteForm(forms.ModelForm):
     class Meta:
         model = Paciente
@@ -33,6 +44,8 @@ class ConsultaForm(forms.ModelForm):
             'fecha' : forms.DateInput(attrs={'class': 'datetime-input'}),
         }
 
+
+
 class IncapacidadForm(forms.ModelForm):
     class Meta:
         model = Incapacidad
@@ -49,3 +62,13 @@ class IncapacidadForm(forms.ModelForm):
             'dias' : forms.TextInput(attrs={'class':'form-control'}),
             'idConsulta' : forms.Select(attrs={'class':'form-control'}),
         }
+
+class MedicoForm(forms.ModelForm):
+    class Meta:
+        model = Medico
+        fields ='__all__'
+
+class EspecialidadForm(forms.ModelForm):
+    class Meta:
+        model = Especialidad
+        fields = '__all__'

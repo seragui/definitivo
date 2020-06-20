@@ -1,0 +1,130 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Ingresar nuevo Paciente{% endblock %}
+    {% block extra %}
+   
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    
+    <script type="text/javascript" src="{% static 'js/formato.js' %}"> </script>
+    {% endblock %}
+</head>
+<body>
+
+   
+
+    <hr>
+    {% block content %}
+<div class="container">
+
+    
+    <h3 id="Ingreso">Ingresar los datos del Paciente</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <form action="" method="POST">
+        
+                {% csrf_token %}   
+                
+                {% if error %}
+                    <h2>{{ error }}</h2>
+                {% else %}    
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="id_nombre">Nombre:</label><br/>
+                        <input type="text" name="nombre" maxlength="150" required="" id="id_nombre" class="form-control">
+                    </div>
+                    <div class="col-md-4 ">
+                        <label for="id_apellidos">Apellidos:</label><br/> 
+                        <input type="text" name="apellidos" maxlength="100" required="" id="id_apellidos" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-md-4 ">
+                        <label for="id_dui">DUI:</label><br/>
+                        <input type="text" name="dui" maxlength="10" required="" id="id_dui" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_sexo">Sexo:</label><br/>
+                        <input type="text" name="sexo" maxlength="1" required="" id="id_sexo" class="form-control">
+                    </div>
+                    <div class="col-md-4 ">
+                        <label for="id_email">Email:</label><br/>
+                        <input type="text" name="email" maxlength="100" required="" id="id_email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-4 ">
+                        <label for="id_estadoCivil">EstadoCivil:</label><br/>
+                        <input type="text" name="estadoCivil" maxlength="10" required="" id="id_estadoCivil" class="form-control">
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_telefono">Telefono:</label><br/>
+                        <input type="text" name="telefono" required="" id="id_telefono" class="form-control">
+                    </div>
+                    <div class="col-md-4 ">
+                        <label for="id_fechaNaci">Fecha de Nacimiento:</label><br/>
+                        <input type="date" name="fechaNaci" required="" id="id_fechaNaci" class="form-control">
+                    </div>
+                </div>
+                   
+                <div class="row">
+                    
+                    <div class="col-md-3 ">
+                        <label for="id_departamento">Departamento:</label><br/>
+                        <input type="text" name="departamento" maxlength="100" required="" id="id_departamento" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="id_municipio">Municipio:</label><br/> 
+                        <input type="text" name="municipio" maxlength="100" required="" id="id_municipio" class="form-control">
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="id_altura">Altura:</label><br/>
+                        <input type="number" name="altura" required="" id="id_altura" class="form-control">
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="id_peso">Peso:</label><br/>
+                        <input type="number" name="peso" required="" id="id_peso" class="form-control">
+                    </div>
+                </div>
+                   
+                <div class="row">
+                    
+                    <div class="col-md-12">
+                        <label for="id_direccion">Direccion:</label><br/> 
+                        <textarea name="direccion" cols="40" rows="3" maxlength="300" required="" id="id_direccion" class="form-control"></textarea><br/>
+                    </div>
+                   
+                </div>
+                    
+                <div class="float-right">
+                    <input type="submit" class="btn btn-secondary" value="Guardar">
+                    <input type="reset" class="btn btn-secondary" value="Cancelar">
+                </div>
+                
+                {% endif %}
+            </form>
+        </div>
+    </div>    
+</div>
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+    {% endblock %}
+    
+</body>
+</html>

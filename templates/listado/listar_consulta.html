@@ -5,27 +5,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block titulo %}Listado de Consultas{% endblock titulo %}
+    {% block titulo %}Listado de Consultas{% endblock %}
     {% block extra %}
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
-    <link rel="stylesheet" href="{% static 'css/estilos6.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'DataTables/datatables.min.css' %}">
+    
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'DataTables/datatables.min.js' %}"></script>
+    
+    <script>
+       $(document).ready( function () {
+        $('#table_paciente').DataTable();
+} );
+    </script>
+    
     {% endblock extra %}
 </head>
-
-
 <body>
+    <BR>
     
     {% block content %}
     {% if consultas %}
-    <table>
+   
+    <div class="container">
+      <h3 id="Ingreso">Gestion de Consultas</h3>
+    <table id="table_consulta" class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>IdConsulta</th>
           <th>IdMedico</th>
           <th>idPaciente</th>
           <th>IdEspecialidad</th>
-          <th>idCita</th>
           <th>Fecha</th>
           <th>Opciones</th>
 
@@ -41,8 +55,6 @@
           <td>{{consulta.fecha}}</td>
           <td>
             <a href="{% url 'clinica:editar_consulta' consulta.idConsulta %}">Actualizar</a>
-          </td>
-          <td>
             <a href="{% url 'clinica:eliminar_consulta' consulta.idConsulta %}">Eliminar</a>
           </td>
         </tr>

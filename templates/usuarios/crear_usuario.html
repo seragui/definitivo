@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}Creación de Usuario{% endblock %}
+    {% block extra %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos3.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/formato.js' %}"> </script>
+    <script type="text/javascript" src="{% static 'js/formato2.js' %}"> </script>
+    {% endblock %}
+</head>
+
+<body>
+    <hr>
+    
+    {% block content %}
+    <div class="container">
+    <h3>Ingresar Usuario</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST" action="" class="con">
+                {% csrf_token %}
+                {{form.as_p}}
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-secondary">Crear</button>
+                        <button type="reset" class="btn btn-secondary">Borrar</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
+    {% endblock %}
+
+</body>
+
+{% block footer %}
+    <footer>
+        <h1><center>°SISMEDICA°</center></h1>
+    </footer>
+  
+{% endblock footer %}
+</body>
+</html>
